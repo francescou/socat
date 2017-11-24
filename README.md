@@ -18,7 +18,7 @@ $ docker run -d --restart=always \
     -p 127.0.0.1:2376:2375 \
     -v /var/run/docker.sock:/var/run/docker.sock \
     alpine/socat \
-    TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock
+    -v TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock
 ```
 
 ***WARNING***: The Docker API is unsecure by default. Please remember to bind the TCP socket to the localhost interface otherwise the Docker API will be bound to all interfaces.
